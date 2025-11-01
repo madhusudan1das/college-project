@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #fff;
+    color: #222;
+}
+
+/* Header/Navbar */
+header {
+    width: 100%;
+    padding: 20px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6f7f9;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+    margin: 3%;
+    width: 100%;
+}
+
+nav a:hover {
+    color: #007bff;
+}
+
+.nav-btns {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.signin {
+    text-decoration: none;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-btn {
+    background: #4169E1;
+    padding: 8px 18px;
+    color: #fff;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: white;
+}
+
+/* Background Video */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40%;
+    height: 40%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(60%);
+    border-radius: 25px; /* optional */
+}
+
+
+/* Content on top of video */
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+/* Floating airplane image */
+.hero-img img {
+    width: 80%;
+    max-width: 700px;
+    margin-top: 40px;
+    animation: float 4s ease-in-out infinite;
+    background: transparent;
+}
+
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero h1 {
+        font-size: 36px;
+    }
+    .hero-img img {
+        width: 95%;
+    }
+}
+
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #f6f7f9;
+        width: 100%;
+        padding: 20px;
+        position: absolute;
+        left: 0;
+        top: 80px;
+    }
+    nav.active {
+        display: flex;
+    }
+    .menu {
+        display: block;
+    }
+    .hero h1 {
+        font-size: 36px;
+    }
+}
