@@ -1,67 +1,167 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-}
-
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #4169E1, #6a9df8);
-}
-
-.signin-container {
-    background: white;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    width: 350px;
-}
-
-.signin-form h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.signin-form p {
-    text-align: center;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 20px;
-}
-
-.signin-form input {
+/* General Styles */
+body{
+    background: url('/Assets/loginbg.png');
     width: 100%;
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    outline: none;
-    margin-bottom: 15px;
-    transition: border 0.3s ease;
+    height: 100dvh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Container for Forms and Content */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 300px;
+  height: auto;
+  padding: 40px;
+  border-radius: 20px;
+
+  /* Glassmorphism style */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  text-align: center;
+  color: #080009;
+  animation: fadeIn 0.8s ease forwards;
 }
 
-.signin-form input:focus {
-    border-color: #4169E1;
+/* Headings */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4a0df4;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #1354d6;
 }
 
 button {
     width: 100%;
-    padding: 12px 0;
+    padding: 12px;
+    background-color: #7235ed;
+    color: white;
     border: none;
-    background: #4169E1;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 8px;
+    border-radius: 6px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background: #335cca;
+    background-color: #1f0ede;
+}
+
+/* Links */
+a {
+    color: #3131ae;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #3f12d3;
+}
+
+/* Index Page Specific Styles */
+.index-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.index-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #28a745;
+}
+
+.index-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.index-container a {
+    display: inline-block;
+    margin: 10px;
+    padding: 12px 24px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.index-container a:hover {
+    background-color: #218838;
+}
+.dashboard-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    margin: 20px;
+}
+
+.dashboard-container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #28a745;
+}
+
+.dashboard-container p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.dashboard-container button {
+    padding: 12px 24px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-container button:hover {
+    background-color: #c82333;
 }
