@@ -6,14 +6,19 @@
 }
 
 body {
-    background: #f8faff;
+    background: url('/Assets/ooficebg.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-section {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 30px 20px;
 }
 
 .contact-container {
@@ -25,7 +30,7 @@ body {
     background: #fff;
     border-radius: 15px;
     padding: 40px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .contact-form {
@@ -98,9 +103,11 @@ textarea {
 
 .contact-illustration img {
     width: 90%;
+    max-width: 450px;
+    border-radius: 20px;
+    object-fit: cover;
 }
 
-/* Responsive */
 @media (max-width: 850px) {
     .contact-container {
         flex-direction: column;
@@ -115,4 +122,45 @@ textarea {
         width: 70%;
         margin-top: 20px;
     }
+}
+/* Popup Message */
+.popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00b894;
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    opacity: 0;
+    transform: translateY(-15px);
+    transition: 0.3s ease;
+    z-index: 9999;
+}
+.popup.error {
+    background: #ff4d4d;
+}
+.popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading Button */
+.send-btn.loading {
+    background: #008ebb;
+    pointer-events: none;
+}
+.send-btn.loading::after {
+    content: " ...";
+    animation: dots 1s infinite steps(3);
+}
+
+@keyframes dots {
+    0% { content: ""; }
+    33% { content: "."; }
+    66% { content: ".."; }
+    100% { content: "..."; }
 }

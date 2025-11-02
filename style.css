@@ -1,3 +1,4 @@
+/* ============ GLOBAL RESET ============ */
 * {
     margin: 0;
     padding: 0;
@@ -10,19 +11,20 @@ body {
     color: #222;
 }
 
-/* Header/Navbar */
+/* ============ NAVBAR ============ */
 header {
     width: 100%;
-    padding: 20px 6%;
+    padding: 18px 6%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #f6f7f9;
+    background: #8998b6;
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
+/* Logo */
 .logo {
     display: flex;
     gap: 6px;
@@ -31,6 +33,12 @@ header {
     font-weight: 700;
 }
 
+.logo img {
+    width: 60%; 
+    height: 60px;
+}
+
+/* Navbar Links */
 nav {
     display: flex;
     gap: 30px;
@@ -38,15 +46,13 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #333;
+    color: #5fd0bf;
     font-weight: 500;
     transition: 0.3s;
-    margin: 3%;
-    width: 100%;
 }
 
 nav a:hover {
-    color: #007bff;
+    color: #a8b1bb;
 }
 
 .nav-btns {
@@ -58,7 +64,7 @@ nav a:hover {
 .signin {
     text-decoration: none;
     font-weight: 500;
-    color: #333;
+    color: #fff;
 }
 
 .contact-btn {
@@ -70,12 +76,13 @@ nav a:hover {
     font-weight: 500;
 }
 
+/* Hamburger button */
 .menu {
     display: none;
     cursor: pointer;
 }
 
-/* Hero Section */
+/* ============ HERO SECTION ============ */
 .hero {
     position: relative;
     width: 100%;
@@ -84,7 +91,6 @@ nav a:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    color: white;
 }
 
 /* Background Video */
@@ -96,75 +102,98 @@ nav a:hover {
     height: 40%;
     transform: translate(-50%, -50%);
     object-fit: cover;
-    z-index: -1;
     filter: brightness(60%);
-    border-radius: 25px; /* optional */
+    border-radius: 220px;
+    z-index: -1;
 }
 
-
-/* Content on top of video */
+/* Hero Text + Plane */
 .hero-content {
-    position: relative;
     text-align: center;
-    z-index: 10;
+    color: #000;
 }
 
 .hero h1 {
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 700;
+    line-height: 1.3;
 }
 
-/* Floating airplane image */
+/* Plane Image */
 .hero-img img {
     width: 80%;
     max-width: 700px;
-    margin-top: 40px;
+    margin-top: 25px;
     animation: float 4s ease-in-out infinite;
-    background: transparent;
 }
 
-
-/* Floating animation */
+/* Floating Animation */
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
 }
 
-/* Responsive */
+/* ====================== RESPONSIVE ====================== */
 @media (max-width: 900px) {
-    .hero h1 {
-        font-size: 36px;
-    }
-    .hero-img img {
-        width: 95%;
-    }
-}
 
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* Responsive */
-@media (max-width: 900px) {
+    /* Navbar mobile */
     nav {
         display: none;
         flex-direction: column;
-        background: #f6f7f9;
+        background: #8998b6;
         width: 100%;
         padding: 20px;
         position: absolute;
         left: 0;
         top: 80px;
     }
+
     nav.active {
         display: flex;
     }
+
     .menu {
         display: block;
     }
+
+    /* Logo resize */
+    .logo img {
+        width: 35px;
+        height: 35px;
+    }
+    .logo span {
+        font-size: 18px;
+    }
+
+    /* Hero section mobile */
+    .hero {
+        height: auto;
+        padding: 70px 20px;
+    }
+
     .hero h1 {
-        font-size: 36px;
+        font-size: 30px;
+    }
+
+    /* Background video resize */
+    .bg-video {
+        width: 90%;
+        height: 45%;
+        border-radius: 25px;
+    }
+
+    /* Plane image resize */
+    .hero-img img {
+        width: 95%;
+        max-width: 330px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero h1 {
+        font-size: 26px;
+    }
+    .bg-video {
+        height: 50%;
     }
 }
