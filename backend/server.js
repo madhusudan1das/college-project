@@ -10,12 +10,26 @@ const Chat = require('./modules/chat');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 require('dotenv').config();
 
-// Initialize Firebase Admin SDK
 const admin = require('firebase-admin');
-const serviceAccount = require('./serviceAccountKey.json');
-admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount)
-});
+
+function getFirebaseCredential() {
+    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+        return admin.credential.cert(JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT));
+    }
+
+    try {
+        const serviceAccount = require('./serviceAccountKey.json');
+        return admin.credential.cert(serviceAccount);
+    } catch (error) {
+        console.warn('Firebase Admin credentials not found. Admin user routes will be unavailable.');
+        return null;
+    }
+}
+
+const firebaseCredential = getFirebaseCredential();
+if (firebaseCredential) {
+    admin.initializeApp({ credential: firebaseCredential });
+}
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -26,12 +40,16 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../fronted')));
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
-    .then(() => console.log('MongoDB Connected'))
-    .catch(err => console.log(err));
+if (process.env.MONGO_URI) {
+    mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+        .then(() => console.log('MongoDB Connected'))
+        .catch(err => console.log(err));
+} else {
+    console.warn('MONGO_URI is not configured. Database routes will fail until it is set.');
+}
 
 // Routes
 
@@ -94,6 +112,10 @@ app.post('/api/login', async (req, res) => {
 // Admin Route: Get all users from Firebase Auth
 app.get('/api/admin/users', async (req, res) => {
     try {
+        if (!firebaseCredential) {
+            return res.status(503).json({ message: 'Firebase Admin is not configured' });
+        }
+
         const listUsersResult = await admin.auth().listUsers(1000); // Fetch up to 1000 users
         const users = listUsersResult.users.map(userRecord => {
             return {
@@ -140,13 +162,18 @@ app.get('/api/admin/inquiries', async (req, res) => {
 });
 
 // Chatbot Route
-const genAI = new GoogleGenerativeAI("AIzaSyDHTg623Ga8umX1NDysru048jkvBYJsYs8");
+const genAI = process.env.GEMINI_API_KEY
+    ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+    : null;
 
 app.post('/api/chat', async (req, res) => {
     try {
         const { message } = req.body;
         if (!message) {
             return res.status(400).json({ error: 'Message is required' });
+        }
+        if (!genAI) {
+            return res.status(503).json({ error: 'Gemini API key is not configured' });
         }
 
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });

@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     
     try {
-        const response = await fetch('http://localhost:5000/api/admin/users');
+        const response = await fetch('/api/admin/users');
         const data = await response.json();
         
         if (response.ok) {
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if(inquiriesTableBody) inquiriesTableBody.innerHTML = '<tr><td colspan="4">Loading...</td></tr>';
 
     try {
-        const response = await fetch('http://localhost:5000/api/admin/inquiries');
+        const response = await fetch('/api/admin/inquiries');
         const data = await response.json();
         
         if (response.ok) {

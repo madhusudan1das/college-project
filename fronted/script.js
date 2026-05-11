@@ -105,9 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===============================
 // NAVBAR MOBILE MENU
 // ===============================
-const menuBtn = document.getElementById("menu-btn");
-const navbar = document.getElementById("navbar");
-
 if (menuBtn && navbar) {
     menuBtn.onclick = () => {
         navbar.classList.toggle("active");
@@ -438,7 +435,7 @@ if (subscribeBtn) {
 
             try {
                 const response = await fetch(
-                    "http://localhost:5000/subscribe",
+                    "/subscribe",
                     {
                         method: "POST",
                         headers: {
