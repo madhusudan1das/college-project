@@ -8,6 +8,18 @@ if (document.getElementById("loginForm")) {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
+        // Admin Login Bypass
+        if (email === "admin@gmail.com" && password === "9339182879") {
+            alert("Admin Login Successful!");
+            localStorage.setItem('user', JSON.stringify({
+                name: "Admin",
+                email: email,
+                isAdmin: true
+            }));
+            window.location.href = "../admin/admin.html";
+            return; // Exit function so Firebase Auth is not called
+        }
+
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;

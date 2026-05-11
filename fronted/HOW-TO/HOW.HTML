@@ -1,0 +1,180 @@
+<!-- =========================================================
+FILE: how-to.html
+Create folder: frontend/how-to/
+Save this file as: how-to.html
+Open in browser.
+========================================================= -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How To - Smart Flight Finder</title>
+    <link rel="stylesheet" href="how-to.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>How To Use Smart Flight Finder</h1>
+            <p>
+                Follow these simple steps to search, compare and book the best flights.
+            </p>
+            <a href="#steps" class="hero-btn">Get Started</a>
+        </div>
+    </section>
+
+    <!-- SEARCH BOX -->
+    <section class="search-section">
+        <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchInput" placeholder="Search steps..." />
+        </div>
+    </section>
+
+    <!-- STEPS SECTION -->
+    <section class="steps-section" id="steps">
+
+        <h2>Step-by-Step Guide</h2>
+
+        <div class="steps-container">
+
+            <!-- Step 1 -->
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <i class="fas fa-plane-departure step-icon"></i>
+                <h3>Enter Departure City</h3>
+                <p>
+                    Type the city or airport you want to fly from.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <i class="fas fa-plane-arrival step-icon"></i>
+                <h3>Enter Destination</h3>
+                <p>
+                    Choose the city or airport you want to travel to.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <i class="fas fa-calendar-alt step-icon"></i>
+                <h3>Select Travel Date</h3>
+                <p>
+                    Pick departure and return dates.
+                </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <i class="fas fa-users step-icon"></i>
+                <h3>Choose Passengers</h3>
+                <p>
+                    Select number of adults, children, and class.
+                </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <i class="fas fa-search-dollar step-icon"></i>
+                <h3>Search Flights</h3>
+                <p>
+                    Click Search to view the best flight deals.
+                </p>
+            </div>
+
+            <!-- Step 6 -->
+            <div class="step-card">
+                <div class="step-number">6</div>
+                <i class="fas fa-filter step-icon"></i>
+                <h3>Filter Results</h3>
+                <p>
+                    Sort by price, duration, and airline.
+                </p>
+            </div>
+
+            <!-- Step 7 -->
+            <div class="step-card">
+                <div class="step-number">7</div>
+                <i class="fas fa-ticket-alt step-icon"></i>
+                <h3>Book Flight</h3>
+                <p>
+                    Select your flight and complete payment securely.
+                </p>
+            </div>
+
+            <!-- Step 8 -->
+            <div class="step-card">
+                <div class="step-number">8</div>
+                <i class="fas fa-envelope-open-text step-icon"></i>
+                <h3>Receive Ticket</h3>
+                <p>
+                    Your e-ticket will be sent to your email instantly.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <h2>Quick Tips</h2>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                When should I book flights?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Book 4 to 8 weeks in advance for domestic flights and 2 to 4 months
+                    for international flights.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I save money?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Compare airlines, use flexible dates, and travel on weekdays.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Is booking secure?
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Yes, all transactions are protected using secure payment gateways.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BACK TO TOP -->
+    <button id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="how.js"></script>
+</body>
+
+</html>

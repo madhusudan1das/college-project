@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Destinations | Smart Flight Finder</title>
+  <link rel="stylesheet" href="explore.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <section class="explore-hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Explore Amazing Destinations</h1>
+      <p>
+        Discover the world's most beautiful cities and plan your next journey.
+      </p>
+      <a href="#destinations" class="hero-btn">Start Exploring</a>
+    </div>
+  </section>
+
+  <!-- Search Section -->
+  <section class="search-section">
+    <div class="search-box">
+      <input type="text" id="destinationSearch" placeholder="Search destinations..." />
+      <button onclick="searchDestinations()">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  </section>
+
+  <!-- Popular Destinations -->
+  <section class="destinations-section" id="destinations">
+    <div class="section-title">
+      <h2>Popular Destinations</h2>
+      <p>Handpicked cities travelers love the most.</p>
+    </div>
+
+    <div class="destination-grid" id="destinationGrid">
+      <div class="destination-card">
+        <img src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
+          alt="Dubai" />
+        <div class="card-content">
+          <h3>Dubai</h3>
+          <p>Luxury shopping, skyscrapers, and desert adventures.</p>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=900&q=80"
+          alt="Tokyo" />
+        <div class="card-content">
+          <h3>Tokyo</h3>
+          <p>Modern culture, technology, and incredible cuisine.</p>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=900&q=80"
+          alt="Paris" />
+        <div class="card-content">
+          <h3>Paris</h3>
+          <p>The city of lights, romance, and iconic landmarks.</p>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=900&q=80"
+          alt="Singapore" />
+        <div class="card-content">
+          <h3>Singapore</h3>
+          <p>Clean, futuristic, and full of attractions.</p>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=900&q=80"
+          alt="London" />
+        <div class="card-content">
+          <h3>London</h3>
+          <p>Historic architecture and world-famous attractions.</p>
+        </div>
+      </div>
+
+      <div class="destination-card">
+        <img src="/frontend/assests/bangkok.jpg" alt="Bangkok" />
+        <div class="card-content">
+          <h3>Bangkok</h3>
+          <p>Street food, temples, and vibrant nightlife.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready for Your Next Adventure?</h2>
+    <p>Search and book flights to your dream destination today.</p>
+    <a href="../index.html" class="cta-btn">Back to Home</a>
+  </section>
+
+  <script src="explore.js"></script>
+</body>
+
+</html>

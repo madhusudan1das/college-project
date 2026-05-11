@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Travel Airways</title>
+
     <link rel="stylesheet" href="style.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <!-- Icons -->
@@ -18,6 +21,7 @@
 
     <!-- Navbar -->
     <header>
+
         <div class="logo">
             <img src="project-logo.png" alt="">
             <span>Airitson</span>
@@ -26,16 +30,25 @@
         <nav id="navbar">
             <a href="#">Home</a>
             <a href="about/about.html">About</a>
-            <a href="#">Offers</a>
-            <a href="#">Seats</a>
-            <a href="#">Destinations</a>
+            <a href="destination/destination.html">Destinations</a>
         </nav>
-        <div class="nav-btns">
-            <a href="sing in/login.html" class="signin">Sign In</a>
 
-            <a href="contact/contact.html" class="contact-btn">Contact</a>
-            <div class="menu" id="menu-btn"><i data-feather="menu"></i></div>
+        <div class="nav-btns">
+
+            <a href="signin/login.html" class="signin">
+                Sign In
+            </a>
+
+            <a href="contact/contact.html" class="contact-btn">
+                Contact
+            </a>
+
+            <div class="menu" id="menu-btn">
+                <i data-feather="menu"></i>
+            </div>
+
         </div>
+
     </header>
 
     <!-- Hero Section -->
@@ -47,73 +60,442 @@
         </video>
 
         <div class="hero-content">
+
             <h1>Create Ever-lasting Memories With Us</h1>
 
             <div class="hero-img">
                 <img src="plane.png" alt="Airplane">
             </div>
+
         </div>
 
     </section>
 
     <!-- Search Section -->
     <section class="search-section">
-        <div class="search-wrapper">
-            <h1>Find Your Next Adventure</h1>
-            <p class="sub-heading">Search flights, compare prices, and book with ease.</p>
 
-            <div class="search-container">
+        <div class="search-wrapper">
+
+            <h1>Find Your Next Adventure</h1>
+
+            <p class="sub-heading">
+                Search flights, compare prices, and book with ease.
+            </p>
+
+            <form action="comparison/comparison.html" method="GET" class="search-container">
+
+                <datalist id="indian-airports">
+
+                    <option value="Delhi">
+                    <option value="Mumbai">
+                    <option value="Bangalore">
+                    <option value="Hyderabad">
+                    <option value="Chennai">
+                    <option value="Kolkata">
+                    <option value="Pune">
+                    <option value="Ahmedabad">
+                    <option value="Goa">
+                    <option value="Jaipur">
+                    <option value="Lucknow">
+                    <option value="Patna">
+                    <option value="Bhubaneswar">
+                    <option value="Guwahati">
+                    <option value="Chandigarh">
+
+                </datalist>
+
+                <!-- Trip Type -->
                 <div class="trip-type">
-                    <select id="trip-type">
+
+                    <select id="trip-type" name="trip">
                         <option value="round">Round Trip</option>
                         <option value="oneway">One Way</option>
                     </select>
+
                 </div>
 
+                <!-- From / To -->
                 <div class="row">
+
                     <div class="input-group">
+
                         <label>Dropping Point (From)</label>
+
                         <div class="input-with-icon">
+
                             <i data-feather="map-pin"></i>
-                            <input type="text" id="from-input" placeholder="City or Airport" value="Kolkata">
+
+                            <input type="text" id="from-input" name="from" list="indian-airports"
+                                placeholder="City or Airport" value="Kolkata" required>
+
                         </div>
+
                     </div>
+
                     <div class="input-group">
+
                         <label>Destination (To)</label>
+
                         <div class="input-with-icon">
+
                             <i data-feather="map-pin"></i>
-                            <input type="text" id="to-input" placeholder="City or Airport" value="Mumbai">
+
+                            <input type="text" id="to-input" name="to" list="indian-airports"
+                                placeholder="City or Airport" value="Mumbai" required>
+
                         </div>
+
                     </div>
+
                 </div>
 
+                <!-- Dates -->
                 <div class="row">
+
                     <div class="input-group">
+
                         <label>Departure</label>
-                        <input type="date" id="departure-date" value="2025-11-20">
+
+                        <input type="date" id="departure-date" name="depart" value="2025-11-20" required>
+
                     </div>
+
                     <div class="input-group">
+
                         <label>Return</label>
-                        <input type="date" id="return-date">
+
+                        <input type="date" id="return-date" name="return">
+
                     </div>
+
                     <div class="input-group">
+
                         <label>Passengers</label>
-                        <select id="passengers">
+
+                        <select id="passengers" name="passengers">
                             <option value="1">1 Passenger</option>
                             <option value="2">2 Passengers</option>
                             <option value="3">3 Passengers</option>
                             <option value="4">4+ Passengers</option>
                         </select>
+
                     </div>
+
                 </div>
 
-                <button class="search-btn" id="search-btn">Search Flights</button>
-            </div>
+                <!-- Button -->
+                <button type="submit" class="search-btn" id="search-btn">
+
+                    Search Flights
+
+                </button>
+
+            </form>
+
         </div>
+
     </section>
 
+    <!-- Travel Section -->
+    <section class="travel-section">
+
+        <div class="travel-container">
+
+            <div class="travel-text">
+
+                <div class="item">
+                    <span class="number blue">01</span>
+                    <h3>Travel requirements for Dubai</h3>
+                    <p>
+                        Find help with booking and travel plans,
+                        see what to expect along the journey to your favourite destinations!
+                    </p>
+                </div>
+
+                <div class="item">
+                    <span class="number orange">02</span>
+                    <h3>Chauffeur services at your arrival</h3>
+                    <p>
+                        Find help with booking and travel plans,
+                        see what to expect along the journey to your favourite destinations!
+                    </p>
+                </div>
+
+                <div class="item">
+                    <span class="number peach">03</span>
+                    <h3>Multi-risk travel insurance</h3>
+                    <p>
+                        Find help with booking and travel plans,
+                        see what to expect along the journey to your favourite destinations!
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="travel-images">
+
+                <div class="oval big">
+                    <img src="Assets/window1.jpg" alt="">
+                </div>
+
+                <div class="oval mid">
+                    <img src="Assets/window2.jpg" alt="">
+                </div>
+
+                <div class="oval small">
+                    <img src="Assets/window3.webp" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+
+        <div class="container">
+
+            <div class="features-header">
+
+                <h2>Travel to make memories all around the world</h2>
+
+                <button class="view-all">
+                    View All
+                </button>
+
+            </div>
+
+            <div class="features-container">
+
+                <div class="feature-oval">
+
+                    <div class="icon blue">
+                        <img src="Assets/calender.png" alt="">
+                    </div>
+
+                    <h3>Book & Relax</h3>
+
+                    <p>
+                        You can also call airlines from your phone and book a flight ticket!
+                    </p>
+
+                </div>
+
+                <div class="feature-oval">
+
+                    <div class="icon orange">
+                        <img src="Assets/check.png" alt="">
+                    </div>
+
+                    <h3>Smart Checklist</h3>
+
+                    <p>
+                        You can also call airlines from your phone and book a flight ticket!
+                    </p>
+
+                </div>
+
+                <div class="feature-oval">
+
+                    <div class="icon yellow">
+                        <img src="Assets/save.webp" alt="">
+                    </div>
+
+                    <h3>Save More</h3>
+
+                    <p>
+                        You can also call airlines from your phone and book a flight ticket!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <!-- Newsletter -->
+        <div class="newsletter">
+
+            <h2>
+                Subscribe Newsletters & get Latest News
+            </h2>
+
+            <div class="newsletter-box">
+
+                <input type="email" placeholder="Enter your email address" id="emailInput">
+
+                <button class="subscribe-btn" id="subscribeBtn">
+
+                    Subscribe
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Footer Main -->
+        <div class="footer-content">
+
+            <!-- Left -->
+            <div class="footer-left">
+
+                <div class="footer-logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/681/681392.png" alt="logo">
+                </div>
+
+                <p>
+                    Your mind should be stronger than your feelings, fly!
+                </p>
+
+                <!-- Social -->
+                <div class="social-icons">
+
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="Assets/facebook.png" alt="Facebook">
+                    </a>
+
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="Assets/instagram.png" alt="Instagram">
+                    </a>
+
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="Assets/Twitter-removebg-preview (1).png" alt="Twitter">
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Links -->
+            <div class="footer-links">
+
+                <div>
+
+                    <h3>Quick Guide</h3>
+
+                    <ul>
+                        <li><a href="FAQ/faq.html">FAQ</a></li>
+                        <li><a href="HOW-TO/HOW.HTML">How To</a></li>
+                        <li><a href="#">Features</a></li>
+                    </ul>
+
+                </div>
+
+                <div>
+
+                    <h3>Information</h3>
+
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="explore/explore.html">Explore</a></li>
+                        <li><a href="travel/travel.html">Travel</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Bottom -->
+        <div class="footer-bottom">
+
+            <p>
+                Courtesy Design | Developed by
+                <a href="#">Airitson</a>
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- AI Chatbot -->
+    <a href="chatbot/chatbot.html" class="ai-chatbot-btn">
+        <img src="Assets/c.png" alt="AI Chatbot">
+    </a>
+
+    <!-- Scripts -->
     <script type="module" src="script.js"></script>
-    <script>feather.replace();</script>
+
+    <script>
+
+        feather.replace();
+
+        // Search Form
+        const searchForm =
+            document.querySelector('.search-container');
+
+        if (searchForm) {
+
+            searchForm.addEventListener('submit', function (e) {
+
+                e.preventDefault();
+
+                const fromCity =
+                    document.getElementById('from-input').value;
+
+                const toCity =
+                    document.getElementById('to-input').value;
+
+                const departureDate =
+                    document.getElementById('departure-date').value;
+
+                const returnDate =
+                    document.getElementById('return-date').value;
+
+                const tripType =
+                    document.getElementById('trip-type').value;
+
+                const passengers =
+                    document.getElementById('passengers').value;
+
+                if (!fromCity || !toCity || !departureDate) {
+
+                    alert(
+                        "Please fill in From, To, and Departure Date fields."
+                    );
+
+                    return;
+                }
+
+                const searchData = {
+
+                    from: fromCity,
+                    to: toCity,
+                    depart: departureDate,
+                    return: returnDate,
+                    trip: tripType,
+                    passengers: passengers
+
+                };
+
+                localStorage.setItem(
+                    'flightSearchParams',
+                    JSON.stringify(searchData)
+                );
+
+                const queryString =
+                    `from=${encodeURIComponent(fromCity)}
+                    &to=${encodeURIComponent(toCity)}
+                    &depart=${encodeURIComponent(departureDate)}
+                    &return=${encodeURIComponent(returnDate)}
+                    &trip=${encodeURIComponent(tripType)}
+                    &passengers=${encodeURIComponent(passengers)}`;
+
+                window.location.href =
+                    `comparison/comparison.html?${queryString}`;
+            });
+        }
+
+    </script>
 
 </body>
 

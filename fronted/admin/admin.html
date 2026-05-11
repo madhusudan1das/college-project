@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Airitson</title>
+    <link rel="stylesheet" href="admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Boxicons for icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class='bx bxs-plane-alt'></i> Airitson Admin</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-target="dashboard-view"><i class='bx bx-grid-alt'></i> Dashboard</a></li>
+                <li><a href="#" data-target="users-view"><i class='bx bx-user'></i> Users</a></li>
+                <li><a href="#" data-target="inquiries-view"><i class='bx bx-message-square-detail'></i> Inquiries</a></li>
+                <li><a href="#" id="logoutBtn"><i class='bx bx-log-out'></i> Logout</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <div class="search-wrapper">
+                    <i class='bx bx-search'></i>
+                    <input type="text" placeholder="Search here...">
+                </div>
+                <div class="user-wrapper">
+                    <!-- Placeholder using an icon or image -->
+                    <div class="admin-avatar">
+                        <i class='bx bxs-user-circle' style="font-size: 40px; color: var(--primary-color);"></i>
+                    </div>
+                    <div>
+                        <h4>Super Admin</h4>
+                        <small>admin@gmail.com</small>
+                    </div>
+                </div>
+            </header>
+
+            <div id="dashboard-view" class="view-section active">
+                <div class="cards" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="card-single">
+                        <div>
+                            <h1 id="total-users">0</h1>
+                            <span>Total Users</span>
+                        </div>
+                        <div>
+                            <i class='bx bx-group'></i>
+                        </div>
+                    </div>
+                    <div class="card-single">
+                        <div>
+                            <h1 id="total-inquiries">0</h1>
+                            <span>Total Inquiries</span>
+                        </div>
+                        <div>
+                            <i class='bx bx-message-rounded-dots'></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="recent-grid" style="grid-template-columns: 1fr;">
+                    <div class="customers">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>New Customers</h3>
+                            </div>
+                            <div class="card-body" id="customers-list">
+                                <!-- Data injected via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Users View -->
+            <div id="users-view" class="view-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>All Registered Users</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Email</td>
+                                        <td>Registration Date</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="users-table-body">
+                                    <!-- Data injected via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Inquiries View -->
+            <div id="inquiries-view" class="view-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Customer Inquiries</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Name</td>
+                                        <td>Email</td>
+                                        <td>Message</td>
+                                        <td>Date</td>
+                                    </tr>
+                                </thead>
+                                <tbody id="inquiries-table-body">
+                                    <!-- Data injected via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

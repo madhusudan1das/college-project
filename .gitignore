@@ -1,0 +1,7 @@
+node_modules/
+.env
+backend/server_error.txt
+backend/server_debug.log
+backend/serviceAccountKey.json
+diff.txt
+diff_utf8.txt

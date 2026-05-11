@@ -34,6 +34,16 @@ document.getElementById("send").addEventListener("click", function () {
 
     const params = { name, email, message };
 
+    // Send to our backend database
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(params)
+    }).catch(err => console.error("Failed to save to database", err));
+
+    // Also send via EmailJS as backup
     emailjs.send("service_dv7bl58", "template_e2igjwa", params)
         .then(() => {
             showPopup("✅ Message sent successfully!");

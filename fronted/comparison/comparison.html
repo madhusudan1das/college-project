@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight Results - Airitson</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        /* Specific overrides for the comparison page */
+        body {
+            background-color: #f5f7fa; /* Light background for the comparison cards */
+            color: #333;
+        }
+
+        .comparison-page {
+            min-height: 100vh;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        .results-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Summary Banner */
+        .summary-banner {
+            background: linear-gradient(135deg, #1E90FF 0%, #00BFFF 100%);
+            padding: 30px;
+            border-radius: 12px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .summary-details h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .summary-details p {
+            font-size: 15px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Flight Cards */
+        .flights-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .flight-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e1e5eb;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .flight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .flight-info-row {
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Airline Info */
+        .airline-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            width: 200px;
+        }
+
+        .airline-logo {
+            width: 45px;
+            height: 45px;
+            background: #e6f0ff;
+            color: #1a73e8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .airline-details h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .airline-details p {
+            font-size: 12px;
+            color: #70757a;
+        }
+
+        /* Flight Times */
+        .time-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .time-block {
+            text-align: center;
+        }
+
+        .time-block h3 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 2px;
+        }
+
+        .time-block p {
+            font-size: 13px;
+            color: #70757a;
+            font-weight: 500;
+        }
+
+        .duration-block {
+            text-align: center;
+            position: relative;
+            width: 120px;
+        }
+
+        .duration-block .dur-time {
+            font-size: 12px;
+            color: #70757a;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .duration-line {
+            height: 1px;
+            background: #dadce0;
+            position: relative;
+            margin: 8px 0;
+        }
+
+        .duration-line i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #dadce0;
+            background: #fff;
+            padding: 0 4px;
+        }
+
+        .duration-block .stops {
+            font-size: 12px;
+            color: #70757a;
+        }
+
+        /* Price Section */
+        .price-section {
+            text-align: right;
+            width: 150px;
+        }
+
+        .price-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-bottom: 2px;
+        }
+
+        .price-section p {
+            font-size: 11px;
+            color: #70757a;
+        }
+
+        /* Compare Row */
+        .compare-row {
+            padding: 15px 30px;
+            background: #fafbfc;
+            border-top: 1px solid #f1f3f4;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .compare-label {
+            font-size: 13px;
+            color: #70757a;
+            font-weight: 500;
+            width: 110px;
+        }
+
+        .ota-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .ota-btn {
+            padding: 8px 16px;
+            border: 1px solid #dadce0;
+            border-radius: 12px;
+            background: #fff;
+            color: #3c4043;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .ota-btn-header {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ota-btn-price {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1a73e8;
+        }
+
+        .ota-btn i {
+            width: 12px;
+            height: 12px;
+            color: #5f6368;
+        }
+
+        .ota-btn:hover {
+            border-color: #1a73e8;
+            color: #1a73e8;
+            background: #f8fbff;
+        }
+
+        .ota-btn:hover i {
+            color: #1a73e8;
+        }
+
+        .book-btn {
+            padding: 10px 24px;
+            background: #1a73e8;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .book-btn:hover {
+            background: #1557b0;
+        }
+
+        .book-btn i {
+            width: 16px;
+            height: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header style="position: fixed; top: 0; left: 0; width: 100%;">
+        <div class="logo">
+            <img src="../project-logo.png" alt="">
+            <span>Airitson</span>
+        </div>
+
+        <nav id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../about/about.html">About</a>
+            <a href="#">Offers</a>
+            <a href="#">Seats</a>
+            <a href="#">Destinations</a>
+        </nav>
+        <div class="nav-btns">
+            <a href="../index.html" class="contact-btn">New Search</a>
+            <div class="menu" id="menu-btn"><i data-feather="menu"></i></div>
+        </div>
+    </header>
+
+    <div class="comparison-page">
+        <div class="results-container">
+            
+            <div class="summary-banner">
+                <div class="summary-details">
+                    <h1 id="route-title">Searching Flights...</h1>
+                    <p id="route-details">Please wait while we prepare your comparisons.</p>
+                </div>
+                <a href="../index.html" class="back-btn">
+                    <i data-feather="arrow-left"></i> Modify Search
+                </a>
+            </div>
+
+            <!-- Flight Cards Container -->
+            <div id="flights-container" class="flights-container">
+                <!-- Flight cards will be dynamically injected here by comparison.js -->
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="comparison.js"></script>
+    <script>
+        // Feather icons will be replaced inside comparison.js after dynamic rendering
+        setTimeout(() => {
+            if (window.feather) feather.replace();
+        }, 500);
+    </script>
+
+</body>
+
+</html>
